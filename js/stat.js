@@ -13,6 +13,7 @@ var BAR_GAP = 50;
 var BAR_WIGHT = 40;
 var BAR_LABEL_HEIGHT = 25;
 var BAR_CHART_TITLE = 'Ура вы победили!\nСписок результатов:';
+var PLAYER_NAME = 'Вы';
 var barChartX = CLOUD_X + 30;
 var barChartY = CLOUD_Y + 80;
 var maxBarHeight = BAR_CHART_HEIGHT - BAR_LABEL_HEIGHT * 2;
@@ -43,11 +44,15 @@ var getMaxElement = function (arr) {
   return Math.max.apply(null, arr);
 };
 
+var getRandomColor = function () {
+  return 'hsl(240, ' + getRandomInteger(0, 100) + '%, 50%)';
+};
+
 var renderBar = function (ctx, x, y, player, time, barHeight) {
-  if (player === 'Вы') {
+  if (player === PLAYER_NAME) {
     ctx.fillStyle = 'rgba(255, 0, 0, 1)';
   } else {
-    ctx.fillStyle = 'hsl(240, ' + getRandomInteger(0, 100) + '%, 50%)';
+    ctx.fillStyle = getRandomColor();
   }
   ctx.fillRect(x, y - barHeight, BAR_WIGHT, barHeight);
   ctx.fillStyle = '#000';
