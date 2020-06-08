@@ -1,11 +1,12 @@
 'use strict';
+
 var NAMES = ['Иван', 'Хуан Себастьян', 'Мария', 'Кристоф', 'Виктор', 'Юлия', 'Люпита', 'Вашингтон'];
 var SURNAMES = ['да Марья', 'Верон', 'Мирабелла', 'Вальц', 'Онопко', 'Топольницкая', 'Нионго', 'Ирвинг'];
 var COAT_COLORS = ['rgb(101, 137, 164)', 'rgb(241, 43, 107)', 'rgb(146, 100, 161)', 'rgb(56, 159, 117)', 'rgb(215, 210, 55)', 'rgb(0, 0, 0)'];
-var EYRS_COLORS = ['black', 'red', 'blue', 'yellow', 'green'];
-var NUMBER_OF_HIROES = 4;
+var EYES_COLORS = ['black', 'red', 'blue', 'yellow', 'green'];
+var NUMBER_OF_HEROES = 4;
 var setup = document.querySelector('.setup');
-var setupSimular = document.querySelector('.setup-similar');
+var setupSimilar = document.querySelector('.setup-similar');
 var similarListElement = document.querySelector('.setup-similar-list');
 var similarWizardTemplate = document.querySelector('#similar-wizard-template')
     .content
@@ -15,8 +16,8 @@ var showSetup = function () {
   setup.classList.remove('hidden');
 };
 
-var showSetupSimular = function () {
-  setupSimular.classList.remove('hidden');
+var showSetupSimilar = function () {
+  setupSimilar.classList.remove('hidden');
 };
 
 var getRandomElementOfArray = function (arr) {
@@ -25,15 +26,15 @@ var getRandomElementOfArray = function (arr) {
 };
 
 var getDataOfHeroes = function () {
-  var hiroes = [];
-  for (var i = 0; i < NUMBER_OF_HIROES; i++) {
-    hiroes.push({
+  var heroes = [];
+  for (var i = 0; i < NUMBER_OF_HEROES; i++) {
+    heroes.push({
       name: getRandomElementOfArray(NAMES) + ' ' + getRandomElementOfArray(SURNAMES),
       coatColor: getRandomElementOfArray(COAT_COLORS),
-      eyesColor: getRandomElementOfArray(EYRS_COLORS)
+      eyesColor: getRandomElementOfArray(EYES_COLORS)
     });
   }
-  return hiroes;
+  return heroes;
 };
 
 var createHero = function (data) {
@@ -61,4 +62,4 @@ var dataOfHeroes = getDataOfHeroes();
 var heroes = createHeroes(dataOfHeroes);
 renderHeroes(heroes);
 showSetup();
-showSetupSimular();
+showSetupSimilar();
